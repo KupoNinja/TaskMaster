@@ -13,11 +13,13 @@ function _drawLists() {
 
 //Public
 export default class ListsController {
-  addList() {
-    let fakeList = {
-      title: "ToDo"
+  addList(event) {
+    event.preventDefault();
+    let formData = event.target;
+    let newList = {
+      title: formData.title.value
     };
-    ListsService.addList(fakeList);
+    ListsService.addList(newList);
     _drawLists();
   }
 

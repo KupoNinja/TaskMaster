@@ -20,7 +20,15 @@
     </header>
     <main class="row">
       <div class="col">
-        <button onclick="app.listsController.addList()">Add List</button>
+        <form onsubmit="app.listsController.addList(event)">
+          <input
+            type="text"
+            name="title"
+            placeholder="Enter List Title"
+            required
+          />
+          <button type="submit">Add List</button>
+        </form>
         <div id="lists-wrapper" class="row"></div>
       </div>
     </main>
