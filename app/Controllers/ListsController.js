@@ -28,9 +28,10 @@ export default class ListsController {
     _drawLists();
   }
 
-  addTask(listId) {
-    let tasks = "Get groceries";
-    ListsService.addTask(listId, tasks);
+  addTask(event, listId) {
+    event.preventDefault();
+    let task = event.target.task.value;
+    ListsService.addTask(listId, task);
     _drawLists();
   }
 

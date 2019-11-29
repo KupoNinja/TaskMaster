@@ -21,9 +21,10 @@ export default class List {
             <ul>
               ${this.getTaskTemplate()}
             </ul>
-            <button type="button" class="btn btn-success" onclick="app.listsController.addTask('${
-              this.id
-            }')">Add Task</button>
+            <form onsubmit="app.listsController.addTask(event, '${this.id}')">
+              <input type="text" name="task" placeholder="Enter Task" required/>
+              <button type="submit" class="btn btn-success">Add Task</button>
+            </form>
             <button type="button" class="btn btn-danger" onclick="app.listsController.removeList('${
               this.id
             }')">
