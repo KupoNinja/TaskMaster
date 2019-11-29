@@ -24,7 +24,10 @@ export default class ListsController {
   }
 
   removeList(id) {
-    ListsService.removeList(id);
+    let confirmed = confirm("Are you sure you want to delete?");
+    if (confirmed) {
+      ListsService.removeList(id);
+    }
     _drawLists();
   }
 
