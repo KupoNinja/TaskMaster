@@ -19,15 +19,18 @@ export default class ListController {
     let fakeList = {
       title: "ToDo"
     };
-
     ListService.addList(fakeList);
-
     _drawLists();
-    // constructor() {
-    //   //NOTE: After the store loads, we can automatically call to draw the lists.
-    //   _drawLists();
-    // }
   }
+
+  removeList(id) {
+    ListService.removeList(id);
+    _drawLists();
+  }
+  // constructor() {
+  //   //NOTE: After the store loads, we can automatically call to draw the lists.
+  //   _drawLists();
+  // }
 
   //TODO: Your app will need the ability to create, and delete both lists and listItems
 }

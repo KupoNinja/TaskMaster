@@ -22,6 +22,9 @@ export default class List {
                 List Items
               </li>
             </ul>
+            <button type="button" class="btn btn-danger" onclick="app.listController.removeList('${this.id}')">
+            Delete List
+            </button>
           </div>
         </div>
       </div>
