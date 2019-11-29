@@ -3,8 +3,9 @@ import store from "../store.js";
 
 //Public
 class ListService {
-  addList(fakeList) {
-    store.State.lists.push(fakeList);
+  addList(rawList) {
+    store.State.lists.push(new List(rawList));
+    // store.saveState();
   }
   constructor() {}
   //TODO  Here is where we handle all of our business logic,

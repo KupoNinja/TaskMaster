@@ -6,8 +6,9 @@ function _drawLists() {
   let template = "";
   let lists = store.State.lists;
   lists.forEach(l => {
-    console.log(l);
+    template += l.Template;
   });
+  document.getElementById("lists-wrapper").innerHTML = template;
 }
 
 _drawLists();
@@ -15,11 +16,10 @@ _drawLists();
 //Public
 export default class ListController {
   addList() {
-    console.log("I'm in the controller...");
-
     let fakeList = {
       title: "ToDo"
     };
+
     ListService.addList(fakeList);
 
     _drawLists();
