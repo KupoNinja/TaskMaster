@@ -20,9 +20,15 @@ class ListsService {
     store.saveState();
   }
 
-  addTask(id, task) {
-    let listToUpdate = store.State.lists.find(l => l.id == id);
+  addTask(listId, task) {
+    let listToUpdate = store.State.lists.find(l => l.id == listId);
     listToUpdate.tasks.push(task);
+    store.saveState();
+  }
+
+  removeTask(listId, taskIndex) {
+    let listToUpdate = store.State.lists.find(l => l.id == listId);
+    listToUpdate.tasks.splice(taskIndex, 1);
     store.saveState();
   }
 }

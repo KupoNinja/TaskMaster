@@ -40,7 +40,7 @@ export default class List {
     this.tasks.forEach((t, index) => {
       template += /*html*/ `
       <li class="card-text">
-        ${t}<span class="btn btn-warning" onclick="app.">X</span>
+        ${t}<span class="btn btn-warning" onclick="app.listsController.removeTask('${this.id}', ${index})">X</span>
       </li>`;
     });
 

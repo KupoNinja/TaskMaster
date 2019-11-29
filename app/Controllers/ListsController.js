@@ -11,8 +11,6 @@ function _drawLists() {
   document.getElementById("lists-wrapper").innerHTML = template;
 }
 
-// _drawLists();
-
 //Public
 export default class ListsController {
   addList() {
@@ -28,9 +26,14 @@ export default class ListsController {
     _drawLists();
   }
 
-  addTask(id) {
+  addTask(listId) {
     let tasks = "Get groceries";
-    ListsService.addTask(id, tasks);
+    ListsService.addTask(listId, tasks);
+    _drawLists();
+  }
+
+  removeTask(listId, taskIndex) {
+    ListsService.removeTask(listId, taskIndex);
     _drawLists();
   }
 
