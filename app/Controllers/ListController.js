@@ -27,6 +27,13 @@ export default class ListController {
     ListService.removeList(id);
     _drawLists();
   }
+
+  addTask(id) {
+    let tasks = "Get groceries";
+    ListService.addTask(id, tasks);
+    _drawLists();
+  }
+
   // constructor() {
   //   //NOTE: After the store loads, we can automatically call to draw the lists.
   //   _drawLists();

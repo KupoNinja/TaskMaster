@@ -13,9 +13,16 @@ class ListService {
     store.State.lists.push(new List(rawList));
     store.saveState();
   }
+
   removeList(id) {
     let i = store.State.lists.findIndex(l => l.id == id);
     store.State.lists.splice(i, 1);
+    store.saveState();
+  }
+
+  addTask(id, task) {
+    let listToUpdate = store.State.lists.find(list => list.id == id);
+    listToUpdate.tasks.push(task);
     store.saveState();
   }
 }
