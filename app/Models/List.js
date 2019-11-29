@@ -21,10 +21,10 @@ export default class List {
             <ul>
               ${this.getTaskTemplate()}
             </ul>
-            <button type="button" class="btn btn-success" onclick="app.listController.addTask('${
+            <button type="button" class="btn btn-success" onclick="app.listsController.addTask('${
               this.id
             }')">Add Task</button>
-            <button type="button" class="btn btn-danger" onclick="app.listController.removeList('${
+            <button type="button" class="btn btn-danger" onclick="app.listsController.removeList('${
               this.id
             }')">
             Delete List
@@ -40,7 +40,7 @@ export default class List {
     this.tasks.forEach((t, index) => {
       template += /*html*/ `
       <li class="card-text">
-        ${t}<span class="btn btn-warning">X</span>
+        ${t}<span class="btn btn-warning" onclick="app.">X</span>
       </li>`;
     });
 

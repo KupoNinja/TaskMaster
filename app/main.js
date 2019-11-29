@@ -1,8 +1,8 @@
-import ListController from "./Controllers/ListController.js";
+import ListsController from "./Controllers/ListsController.js";
 
 //NOTE This should be good to go
 class App {
-  listController = new ListController();
+  listsController = new ListsController();
 }
 
 window["app"] = new App();

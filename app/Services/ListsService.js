@@ -2,7 +2,7 @@ import List from "../Models/List.js";
 import store from "../store.js";
 
 //Public
-class ListService {
+class ListsService {
   constructor() {}
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
@@ -21,11 +21,11 @@ class ListService {
   }
 
   addTask(id, task) {
-    let listToUpdate = store.State.lists.find(list => list.id == id);
+    let listToUpdate = store.State.lists.find(l => l.id == id);
     listToUpdate.tasks.push(task);
     store.saveState();
   }
 }
 
-const SERVICE = new ListService();
+const SERVICE = new ListsService();
 export default SERVICE;
