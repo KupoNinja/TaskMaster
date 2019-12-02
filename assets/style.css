@@ -1,3 +1,7 @@
 body {
   height: 100vh;
 }
+
+.titles {
+  text-shadow: 0 0 10px #09ff53;
+}

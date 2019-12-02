@@ -9,20 +9,19 @@ export default class List {
     this.title = data.title;
     this.tasks = data.tasks || [];
   }
-  //Be sure to add the methods needed to create the view template for this model
   //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
 
   get Template() {
     return /*html*/ `
     <div class="col-3">
-      <div class="card">
+      <div class="card bg-primary">
         <div class="card-body">
-          <h5 class="card-title">${this.title}</h5>
+          <h5 class="titles card-title">${this.title}</h5>
             <ul>
               ${this.getTaskTemplate()}
             </ul>
             <form onsubmit="app.listsController.addTask(event, '${this.id}')">
-              <input type="text" name="task" placeholder="Enter Task" required/>
+              <input  class="task-input" type="text" name="task" placeholder="Enter Task" required/>
               <button type="submit" class="btn btn-success">Add Task</button>
             </form>
             <button type="button" class="btn btn-danger" onclick="app.listsController.removeList('${
@@ -41,7 +40,7 @@ export default class List {
     this.tasks.forEach((t, index) => {
       template += /*html*/ `
       <li class="card-text">
-        ${t}<span class="btn btn-warning" onclick="app.listsController.removeTask('${this.id}', ${index})">X</span>
+        ${t}<span class="btn btn-warning justify-self-end" onclick="app.listsController.removeTask('${this.id}', ${index})">X</span>
       </li>`;
     });
 
