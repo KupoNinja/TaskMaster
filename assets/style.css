@@ -2,6 +2,7 @@ body {
   height: 100vh;
 }
 
+/* NOTE See if we can randomize color later */
 .titles {
   text-shadow: 0 0 10px #09ff53;
 }
