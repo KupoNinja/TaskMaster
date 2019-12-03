@@ -1,4 +1,5 @@
 import ListsService from "../Services/ListsService.js";
+// import Swal from "sweetalert2";
 import store from "../store.js";
 
 function _drawLists() {
@@ -23,11 +24,27 @@ export default class ListsController {
   }
 
   removeList(id) {
-    let confirmed = confirm("Are you sure you want to delete?");
-    if (confirmed) {
-      ListsService.removeList(id);
-    }
-    _drawLists();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(result => {
+      if (result.value) {
+        ListsService.removeList(id);
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        _drawLists();
+      }
+    });
+
+    // let confirmed = confirm("Are you sure you want to delete?");
+    // if (confirmed) {
+    //   ListsService.removeList(id);
+    // }
+    // _drawLists();
   }
 
   addTask(event, listId) {

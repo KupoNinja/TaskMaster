@@ -18,7 +18,7 @@ export default class List {
         <div class="card-body">
         <div class="row d-flex justify-content-between">
           <h5 class="list-titles card-title">${this.title}</h5>
-          <button type="button" class="btn btn-danger mr-2" onclick="app.listsController.removeList('${
+          <button type="button" class="btn btn-danger mr-3" onclick="app.listsController.removeList('${
             this.id
           }')">
             Delete List
@@ -30,7 +30,7 @@ export default class List {
             </ul>
             <form onsubmit="app.listsController.addTask(event, '${this.id}')">
               <input  class="task-input" type="text" name="task" placeholder="Enter Task" required/>
-              <button type="submit" class="btn btn-success ml-2">Add Task</button>
+              <button type="submit" class="btn btn-success mb-3 ml-2">Add Task</button>
             </form>
             
             
