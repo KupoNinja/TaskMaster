@@ -29,8 +29,13 @@ export default class List {
               ${this.getTaskTemplate()}
             </ul>
             <form onsubmit="app.listsController.addTask(event, '${this.id}')">
-              <input  class="task-input" type="text" name="task" placeholder="Enter Task" required/>
-              <button type="submit" class="btn btn-sm btn-success mb-2 ml-2">Add Task</button>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="task" placeholder="Enter Task" aria-label="Enter Task" aria-describedby="Enter Task">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-sm btn-success" type="button">Add Task</button>
+                </div>
+              </div>
+              
             </form>
             
             

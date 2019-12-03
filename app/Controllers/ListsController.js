@@ -25,7 +25,7 @@ export default class ListsController {
 
   removeList(id) {
     Swal.fire({
-      title: "Are you sure?",
+      title: "Delete this list?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
@@ -35,7 +35,7 @@ export default class ListsController {
     }).then(result => {
       if (result.value) {
         ListsService.removeList(id);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("Deleted!", "The list has been deleted.", "success");
         _drawLists();
       }
     });
@@ -55,11 +55,27 @@ export default class ListsController {
   }
 
   removeTask(listId, taskIndex) {
-    let confirmed = confirm("Are you sure you want to delete?");
-    if (confirmed) {
-      ListsService.removeTask(listId, taskIndex);
-    }
-    _drawLists();
+    Swal.fire({
+      title: "Delete this task?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(result => {
+      if (result.value) {
+        ListsService.removeTask(listId, taskIndex);
+        Swal.fire("Deleted!", "The task has been deleted.", "success");
+        _drawLists();
+      }
+    });
+
+    // let confirmed = confirm("Are you sure you want to delete?");
+    // if (confirmed) {
+    //   ListsService.removeTask(listId, taskIndex);
+    // }
+    // _drawLists();
   }
 
   constructor() {
