@@ -13,22 +13,28 @@ export default class List {
 
   get Template() {
     return /*html*/ `
-    <div class="col-3">
+    <div class="col-lg-3 col-md-12">
       <div class="card bg-primary">
         <div class="card-body">
-          <h5 class="titles card-title">${this.title}</h5>
+        <div class="row d-flex justify-content-between">
+          <h5 class="list-titles card-title">${this.title}</h5>
+          <button type="button" class="btn btn-danger mr-2" onclick="app.listsController.removeList('${
+            this.id
+          }')">
+            Delete List
+            </button>
+            </div>
+          <hr class="bg-light">
             <ul>
               ${this.getTaskTemplate()}
             </ul>
             <form onsubmit="app.listsController.addTask(event, '${this.id}')">
               <input  class="task-input" type="text" name="task" placeholder="Enter Task" required/>
-              <button type="submit" class="btn btn-success">Add Task</button>
+              <button type="submit" class="btn btn-success ml-2">Add Task</button>
             </form>
-            <button type="button" class="btn btn-danger" onclick="app.listsController.removeList('${
-              this.id
-            }')">
-            Delete List
-            </button>
+            
+            
+            
           </div>
         </div>
       </div>
@@ -40,7 +46,7 @@ export default class List {
     this.tasks.forEach((t, index) => {
       template += /*html*/ `
       <li class="card-text">
-        ${t}<span class="btn btn-warning justify-self-end" onclick="app.listsController.removeTask('${this.id}', ${index})">X</span>
+        ${t}<span class="pl-2" onclick="app.listsController.removeTask('${this.id}', ${index})"><i class="fas fa-ban text-danger"></i></span>
       </li>`;
     });
 

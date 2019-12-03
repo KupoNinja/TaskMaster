@@ -14,9 +14,9 @@ function _drawLists() {
 export default class ListsController {
   addList(event) {
     event.preventDefault();
-    let formData = event.target;
+    let form = event.target;
     let newList = {
-      title: formData.title.value
+      title: form.title.value
     };
     ListsService.addList(newList);
     _drawLists();
@@ -38,7 +38,10 @@ export default class ListsController {
   }
 
   removeTask(listId, taskIndex) {
-    ListsService.removeTask(listId, taskIndex);
+    let confirmed = confirm("Are you sure you want to delete?");
+    if (confirmed) {
+      ListsService.removeTask(listId, taskIndex);
+    }
     _drawLists();
   }
 
